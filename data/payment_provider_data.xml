@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="payment_provider_bml" model="payment.provider">
+        <field name="name">BML</field>
+        <field name="code">bml</field>
+        <field name="display_as">BML Payment Gateway (MPGS)</field>
+        <field name="image_128" type="base64" file="payment_bml/static/description/icon.png"/>
+        <field name="redirect_form_view_id" ref="redirect_form"/>
+    </record>
+
+</odoo>

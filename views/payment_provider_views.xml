@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="payment_provider_form" model="ir.ui.view">
+        <field name="name">BML Provider Form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <group name="provider_credentials" position='inside'>
+                <group name="bml_credentials"
+                       attrs="{'invisible': [('code', '!=', 'bml')]}">
+                    <field name="bml_merchant_id"
+                           string="Merchant Id"
+                           attrs="{'required': [('code', '=', 'bml'), ('state', '!=', 'disabled')]}"/>
+                    <field name="bml_acquirer_id"
+                           string="Acquirer Id"
+                           attrs="{'required': [('code', '=', 'bml'), ('state', '!=', 'disabled')]}"/>
+                    <field name="bml_passcode"
+                           string="Passcode"
+                           attrs="{'required': [('code', '=', 'bml'), ('state', '!=', 'disabled')]}"
+                           password="True"/>
+                     <field name="bml_live_url"
+                           string="Live URL"
+                           attrs="{'required': [('code', '=', 'bml'), ('state', '!=', 'disabled')]}"
+                           placeholder="https://transaction.merchants.bankofmaldives.com.mv/"
+                           password="True"/>
+                     <field name="bml_test_url"
+                           string="Test URL"
+                           attrs="{'required': [('code', '=', 'bml'), ('state', '!=', 'disabled')]}"
+                           placeholder="https://transaction.merchants.bankofmaldives.com.mv/"
+                           password="True"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>
